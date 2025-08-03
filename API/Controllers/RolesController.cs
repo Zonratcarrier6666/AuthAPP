@@ -51,17 +51,24 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<RoleResponseDto>>> GetRoles()
         {
-            
+
 
             // list of roles with total users in each role 
+            var rolesList = await _roleManager.Roles.ToListAsync();
+            var result = new List<RoleResponseDto>();
 
-            var roles = await _roleManager.Roles.Select(r=>new RoleResponseDto{
-                Id = r.Id,
-                Name = r.Name,
-                TotalUsers = _userManager.GetUsersInRoleAsync(r.Name!).Result.Count
-            }).ToListAsync();
+            foreach (var role in rolesList)
+            {
+                var usersInRole = await _userManager.GetUsersInRoleAsync(role.Name!);
+                result.Add(new RoleResponseDto
+                {
+                    Id = role.Id,
+                    Name = role.Name,
+                    TotalUsers = usersInRole.Count
+                });
+            }
 
-            return Ok(roles);
+            return Ok(result);
         }
 
 

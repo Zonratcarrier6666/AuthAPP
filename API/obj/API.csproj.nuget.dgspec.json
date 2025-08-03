@@ -1,33 +1,36 @@
 {
   "format": 1,
   "restore": {
-    "D:\\JWT\\JwtAuth\\API\\API.csproj": {}
+    "C:\\Users\\XXXXX\\OneDrive - Universidad Tecnológica de León\\Escritorio\\JwtAuth\\Ng17Dotnet8RoleBaseAuthJWT\\API\\API.csproj": {}
   },
   "projects": {
-    "D:\\JWT\\JwtAuth\\API\\API.csproj": {
+    "C:\\Users\\XXXXX\\OneDrive - Universidad Tecnológica de León\\Escritorio\\JwtAuth\\Ng17Dotnet8RoleBaseAuthJWT\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\JWT\\JwtAuth\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\XXXXX\\OneDrive - Universidad Tecnológica de León\\Escritorio\\JwtAuth\\Ng17Dotnet8RoleBaseAuthJWT\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "D:\\JWT\\JwtAuth\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\pushpa\\.nuget\\packages\\",
-        "outputPath": "D:\\JWT\\JwtAuth\\API\\obj\\",
+        "projectPath": "C:\\Users\\XXXXX\\OneDrive - Universidad Tecnológica de León\\Escritorio\\JwtAuth\\Ng17Dotnet8RoleBaseAuthJWT\\API\\API.csproj",
+        "packagesPath": "C:\\Users\\XXXXX\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\XXXXX\\OneDrive - Universidad Tecnológica de León\\Escritorio\\JwtAuth\\Ng17Dotnet8RoleBaseAuthJWT\\API\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\pushpa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\XXXXX\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net8.0"
+          "net9.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
+          "net9.0": {
+            "targetAlias": "net9.0",
             "projectReferences": {}
           }
         },
@@ -35,11 +38,17 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net9.0": {
+          "targetAlias": "net9.0",
           "dependencies": {
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
@@ -50,6 +59,10 @@
               "version": "[8.0.1, )"
             },
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[8.0.1, )"
             },
@@ -87,7 +100,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.205/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

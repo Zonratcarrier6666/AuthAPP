@@ -11,8 +11,20 @@ var builder = WebApplication.CreateBuilder(args);
 
 var JWTSetting = builder.Configuration.GetSection("JWTSetting");
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
+builder.Services.AddControllers();
 // Add services to the container.
-builder.Services.AddDbContext<AppDbContext>(opt=>opt.UseSqlite("Data Source=auth.db"));
+builder.Services.AddDbContext<AppDbContext>(opt =>
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("cadenaSQL")));
 
 builder.Services.AddIdentity<AppUser,IdentityRole>().AddEntityFrameworkStores<AppDbContext>()
 .AddDefaultTokenProviders();
@@ -79,12 +91,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseCors(options =>
-{
-    options.AllowAnyHeader();
-    options.AllowAnyMethod();
-    options.AllowAnyOrigin();
-});
+app.UseCors("AllowAll");
 
 app.UseAuthentication();
 
