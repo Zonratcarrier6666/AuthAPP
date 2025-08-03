@@ -1,0 +1,24 @@
+# Archivos y carpetas de Visual Studio
+.vs/
+*.user
+*.suo
+
+# Archivos de build y salida de .NET
+bin/
+obj/
+
+# Node.js y Angular
+node_modules/
+dist/
+frontend/node_modules/
+frontend/dist/
+
+# Configuraciones y cachés de editores
+.vscode/
+
+# Logs y temporales
+*.log
+.DS_Store
+
+# Archivos de Angular generados
+.angular/
