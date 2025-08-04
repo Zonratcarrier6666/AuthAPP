@@ -32,22 +32,30 @@ export class LoginComponent implements OnInit {
   fb = inject(FormBuilder);
 
   login() {
-    this.authService.login(this.form.value).subscribe({
-      next: (response) => {
-        this.matSnackBar.open(response.message, 'Close', {
-          duration: 5000,
-          horizontalPosition: 'center',
-        });
+  this.authService.login(this.form.value).subscribe({
+    next: (response) => {
+      this.matSnackBar.open(response.message, 'Close', {
+        duration: 5000,
+        horizontalPosition: 'center',
+      });
+
+      const user = this.authService.getUserDetail();
+
+      if (user?.roles.includes('Admin')) {
+        this.router.navigate(['/admin']);
+      } else {
         this.router.navigate(['/']);
-      },
-      error: (error) => {
-        this.matSnackBar.open(error.error.message, 'Close', {
-          duration: 5000,
-          horizontalPosition: 'center',
-        });
-      },
-    });
-  }
+      }
+    },
+    error: (error) => {
+      this.matSnackBar.open(error.error.message || 'Error de login', 'Close', {
+        duration: 5000,
+        horizontalPosition: 'center',
+      });
+    },
+  });
+}
+
 
   ngOnInit(): void {
     this.form = this.fb.group({

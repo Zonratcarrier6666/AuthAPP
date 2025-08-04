@@ -7,24 +7,34 @@ import { AuthService } from '../../services/auth.service';
 import { MatMenuModule } from '@angular/material/menu';
 import { CommonModule } from '@angular/common';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+
 @Component({
-    selector: 'app-navbar',
-    imports: [
-        MatToolbarModule,
-        RouterLink,
-        MatMenuModule,
-        MatButtonModule,
-        MatSnackBarModule,
-        MatIconModule,
-        CommonModule,
-    ],
-    templateUrl: './navbar.component.html',
-    styleUrl: './navbar.component.css'
+  selector: 'app-navbar',
+  imports: [
+    MatToolbarModule,
+    RouterLink,
+    MatMenuModule,
+    MatButtonModule,
+    MatSnackBarModule,
+    MatIconModule,
+    CommonModule,
+  ],
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
   authService = inject(AuthService);
   matSnackBar = inject(MatSnackBar);
   router = inject(Router);
+
+  userHomeRoute = '/'; // ruta por defecto
+
+  constructor() {
+    const user = this.authService.getUserDetail();
+    if (user?.roles.includes('Admin')) {
+      this.userHomeRoute = '/admin';
+    }
+  }
 
   isLoggedIn() {
     return this.authService.isLoggedIn();
